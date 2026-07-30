@@ -26,4 +26,4 @@ Server starts on `http://localhost:3000` (or whatever `PORT` you set).
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT - see [LICENSE](LICENSE).
