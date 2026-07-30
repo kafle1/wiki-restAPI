@@ -14,10 +14,13 @@ app.use(
 );
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost:27017/wikiDB", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost:27017/wikiDB",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 const articleSchema = {
   title: String,
   content: String,
@@ -120,6 +123,7 @@ app
     });
   });
 
-app.listen(3000, function () {
-  console.log("Server started on port 3000");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, function () {
+  console.log("Server started on port " + PORT);
 });
